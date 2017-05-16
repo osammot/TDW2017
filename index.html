@@ -1,0 +1,158 @@
+<div class="slider-area">
+        	<!-- Slider -->
+			<div class="block-slider block-slider4">
+				<ul class="" id="bxslider-home4">
+					<li>
+						<img src="./img/Breaking-slider.jpg" alt="Slide">
+
+					</li>
+					<li><img src="./img/revenant-slider.png" alt="Slide">
+				    </li>
+                    <li><img src="./img/ted-slider.png" alt="Slide">
+                    </li>
+
+				</ul>
+			</div>
+			<!-- ./Slider -->
+</div> <!-- End slider area -->
+
+
+
+<div class="maincontent-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    
+                                        <!--div di alcuni prodotti -->    
+                    
+                    <div class="latest-product"> 
+                        <h2 class="section-title">Alcuni dei nostri Prodotti</h2>
+                        <div class="product-carousel">
+              <[foreach]>
+                           <div class="single-product">
+                                
+                                <div class="product-f-image">
+                                    <img src="<[path]>" alt="">  
+                                   <div class="product-hover">
+                                        <a href="single-product.php" class="view-details-link"><i class="fa fa-link"></i> Dettagli</a>
+                                    </div>
+                                </div>
+                                       <h2><a href="single-product.php"> <[nome]> </a></h2>
+                                  <div class="product-carousel-price">
+                                      <ins>  <[prezzo]>$  </ins>                         
+                                 </div>
+                              </div>
+              <[/foreach]>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
+
+    <div class="product-widget-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+          
+                                           <!--div a prezzi bassi-->
+                
+                <div class="col-md-4">    
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">A prezzi bassi</h2>
+                         <a href="#" class="wid-view-more">View All</a>
+                        <[foreach]>
+                         <div class="single-wid-product">
+                            <a href="single-product.php">
+                                <img src= "<[offertapath]>" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.php"> <[offertanome]> </a></h2>
+                            
+                            <div class="product-wid-price">
+                                <ins> <[offertaprezzo]>$ </ins> 
+                            </div>
+                        </div>
+                     <[/foreach]> 
+                    </div>
+                </div>
+                
+                
+                 
+                                          <!--div dei news-->
+                  
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">News</h2>
+                        <a href="#" class="wid-view-more">View All</a>
+                        <div class="single-wid-product">
+                            <a href="single-product.php"><img src="img/film13.jpg" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.php">Zoo</a></h2>
+                            <div class="product-wid-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+
+                            </div>
+                            <div class="product-wid-price">
+                                <ins>$10.00</ins> <del>$15.00</del>
+                            </div>
+                        </div>
+                        <div class="single-wid-product">
+                            <a href="single-product.php"><img src="img/film9.jpg" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.php">S13 hours</a></h2>
+                            <div class="product-wid-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+
+                            </div>
+                            <div class="product-wid-price">
+                                <ins>$4.00</ins> <del>$5.00</del>
+                            </div>
+                        </div>
+                        <div class="single-wid-product">
+                            <a href="single-product.php"><img src="img/serie12.jpg" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.php">House of Cards</a></h2>
+                            <div class="product-wid-rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                            <div class="product-wid-price">
+                                <ins>$10.00</ins> <del>$15.00</del>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                                      <!--div ultimi usciti-->
+                
+                
+                <div class="col-md-4">
+                    <div class="single-product-widget">
+                        <h2 class="product-wid-title">Top New</h2>
+                        <a href="#" class="wid-view-more">View All</a>
+                        <[foreach]>
+                          <div class="single-wid-product">
+                        <img src= "<[newspath]>" alt="" class="product-thumb"></a>
+                            <h2><a href="single-product.php"> <[newsnome]>  <br> <br> <b> <[newsdata]> </b> </a></h2>
+                            
+                            <div class="product-wid-price">
+                                <ins> <[newsprezzo]>$ </ins> 
+                            </div>
+                        </div>
+                     <[/foreach]> 
+                     
+                       
+                    </div>
+                </div>
+           </div>
+        </div>
+    </div> <!-- End product widget area -->

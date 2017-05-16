@@ -1,0 +1,49 @@
+<script> //script per campi obbligatori e che verificano i dati inseriti
+    function validateForm(){
+        var x = document.forms["myForm"]["id_news"].value;
+        var s = document.forms["myForm"]["data_news"].value;
+        var y = document.forms["myForm"]["titolo"].value;
+        var w = document.forms["myForm"]["id_prodotto"].value;
+
+    if (x == "" || y == "" || w == "" || s="") {
+        alert("Attenzione, ci sono dei campi vuoti oppure i dati inseriri non rispettano i tipi assegnati!");
+        return false;
+    }
+}
+</script>
+
+<form class="form-horizontal style-form" name="myForm" method="post" action="add-news.php" onsubmit="validateFormNews()">
+    <h1> Add News </h1>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">id news*</label>
+                              <div class="col-sm-10">
+                                  <input type="number" class="form-control" name="id_news" value="">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">data news*</label>
+                              <div class="col-sm-10">
+                                  <input type="text" class="form-control" name="data_news" value="" placeholder="AAAA/MM/GG">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label">titolo*</label>
+                              <div class="col-sm-10">
+                                  <textarea type="text" class="form-control" name="titolo" value=""></textarea>
+                              </div>
+                          </div>
+                         <div class="form-group">
+                              <label class="col-sm-2 col-sm-2 control-label" for="id">Id Prodotto:</label>
+                             <select name="selezione">
+                                 
+                                 <[foreach]>
+                                     
+                                 <option value='<[id_prodotto]>' name='id_prodotto' id='id_prodotto'> (id:<[id_prodotto]>) <[nome]>  </option>
+                                     
+                                <[/foreach]>
+                                    
+                             </select>
+                          </div>
+                        <button type="submit" class="btn btn-theme"> Aggiungi </button>
+                                                    
+</form>

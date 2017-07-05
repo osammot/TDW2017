@@ -1,0 +1,177 @@
+create table utenti (
+nome varchar(50) not null,
+cognome varchar(50) not null,
+città varchar(50) not null,
+indirizzo varchar(50) not null,
+cap int(10)not null,
+stato varchar(50)not null,
+cellulare int(10)not null,
+username varchar(50)not null,
+password varchar(50)not null,
+email varchar(50)not null,
+primary key (username)
+);
+
+
+
+create table gruppi (
+id_gruppo int(10) auto_increment,
+nome varchar(30) not null,
+descrizione varchar(100) default "descrizione mancante",
+primary key (id_gruppo)
+);
+
+create table utentigruppi(
+username varchar(50) not null unique,
+id_gruppo int(10),
+primary key (username,id_gruppo),
+foreign key(id_gruppo) references gruppi(id_gruppo) on delete cascade on update cascade,
+foreign key(username)references utenti(username) on delete cascade on update cascade
+);
+
+
+create table servizi(
+id_servizio int(10) auto_increment,
+script varchar(50) not null,
+descrizione varchar(100) default "descrizione mancante",
+primary key (id_servizio)
+);
+
+create table gruppiservizi(
+id_gruppo int(10),
+id_servizio int(10),
+foreign key(id_gruppo) references gruppi(id_gruppo) on delete cascade on update cascade,
+foreign key(id_servizio) references servizi(id_servizio) on delete cascade on update cascade
+);
+
+
+
+create table categorie(
+id_categoria int(10) auto_increment,
+nome varchar(50) not null unique,
+descrizione varchar(100) default "descrizione mancante",
+primary key(id_categoria)
+);
+
+
+create table immagini(
+id_immagine int(10) auto_increment,
+path varchar(50),
+alt varchar(50) default "immagine mancante",
+primary key(id_immagine)
+);
+
+
+
+create table slider(
+id_immagine int(10) ,
+id_position int(2),
+foreign key(id_immagine) references immagini(id_immagine) on delete cascade 
+);
+
+
+create table prodotti(
+id_prodotto int(11) auto_increment,
+titolo varchar(50) not null,
+durata int(4),
+tipologia varchar(50),
+prezzo int (10),
+quantità_disponibile int(10),
+descrizione text,
+id_immaginePrincipale int(10),
+id_categoria  int(10),
+data date,
+contvisualizzazioni int(12) default 0,
+primary key (id_prodotto),
+foreign key(id_immaginePrincipale) references immagini(id_immagine) on delete cascade,
+foreign key(id_categoria) references categorie(id_categoria) on delete cascade
+);
+
+
+create table immaginiProdotto(
+id_immagine int(10) ,
+id_prodotto int(11) ,
+foreign key(id_prodotto) references prodotti(id_prodotto) on delete cascade,
+foreign key(id_immagine) references immagini(id_immagine) on delete cascade
+);
+
+create table carrello(
+id_prodotto int(11) not null,
+quantità int(3),
+username varchar(50) not null,
+primary key(id_prodotto,username),
+foreign key(id_prodotto) references prodotti(id_prodotto) on delete cascade,
+foreign key(username) references utenti(username) on delete cascade
+);
+
+create table wishlist(
+id_prodotto int(11) not null,
+username varchar(50) not null,
+foreign key(id_prodotto) references prodotti(id_prodotto) on delete cascade,
+foreign key(username) references utenti(username) on delete cascade
+);
+
+create table recensioni(
+id_recensione int(12) auto_increment,
+data_inserimento timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+titolo varchar(50) not null,
+testo varchar(350) not null,
+username varchar(50)not null,
+id_prodotto int(11) not null,
+primary key(id_recensione),
+foreign key(username) references utenti(username) on delete cascade,
+foreign key(id_prodotto) references prodotti(id_prodotto) on delete cascade
+);
+
+
+create table coupon(
+id_coupon int(10) auto_increment ,
+codice_coupon int(10) not null,
+validità date,
+sconto int(2),
+primary key(id_coupon)
+);
+
+
+
+create table ordini(
+ id_ordine int(10) auto_increment,
+ data_ordine timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+ prezzoTotale int(10) not null,
+ username varchar(50) not null,
+ primary key(id_ordine),
+ foreign key(username) references utenti(username) on delete cascade
+);
+
+
+
+
+
+create table dettagliOrdini(
+ id_ordine int(10) not null ,
+ id_prodotto int(11) not null,
+ quantità int(10) not null,
+ foreign key(id_ordine) references ordini(id_ordine)on delete cascade,
+ foreign key(id_prodotto) references prodotti(id_prodotto)
+);
+
+create table prenotazioni(
+  id_prodotto int(11) not null,
+  username varchar(50) not null,
+  prezzo int(10) not null,
+  quantità int(10) default 0,
+  primary key (id_prodotto ,username),
+  foreign key(id_prodotto) references prodotti(id_prodotto),
+  foreign key(username) references utenti(username) on delete cascade
+);
+
+
+
+create table marketingForSpecificUser(
+ id_prodotto int(11) not null,
+ contvisualizzazioni int(12) default 0,
+ username varchar(50) not null,
+ addremovotocart int(4) default 0,
+ foreign key(username) references utenti(username) on delete cascade,
+ foreign key(id_prodotto) references prodotti(id_prodotto)
+);

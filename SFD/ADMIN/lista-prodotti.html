@@ -1,0 +1,70 @@
+<html>
+    
+<form class="form-horizontal style-form" name="myForm" method="post" action="lista-prodotti.php">
+    
+    <h1> Prodotti </h1>
+     <table class="table table-striped table-hover table-bordered" id="sample_editable_1">
+	<thead>
+		<tr>
+			<th>Titolo</th>
+			<th>Durata</th>
+			<th>Tipologia</th>
+			<th>Prezzo</th>
+			<th>Qnt. disponibile</th>
+			<th>Descrizione</th>
+            <th>Id Immagine principale</th>
+            <th>Id categoria</th>
+			<th>Data</th>
+            <th>Edit</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+
+	<tbody>
+        
+        <[foreach]>
+		
+        <tr>
+			<td>
+				 <[titolo]>
+			</td>
+			<td>
+				 <[durata]>
+			</td>
+			<td>
+				 <[tipologia]>
+			</td>
+			<td class="center">
+				 <[prezzo]>
+			</td>
+            <td class="center">
+				 <[quantità_disponibile]>
+			</td>
+            <td class="descrizione">
+				 <[descrizione]>
+			</td>
+            <td class="center">
+				 <[id_immaginePrincipale]>
+			</td>
+            <td class="center">
+				 <[id_categoria]>
+			</td>
+            <td class="center">
+				 <[data]>
+			</td>
+			<td>
+				<a class="edit" href="javascript:;">
+				Edit </a>
+			</td>
+			<td>
+				<a class="delete" href="javascript:;">
+				Delete </a>
+			</td>
+		</tr>
+            
+    <[/foreach]>
+        
+	</tbody>
+</table>
+                                
+</form>
